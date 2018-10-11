@@ -84,8 +84,17 @@ julia>
 By default, the notebook "dashboard" opens in your
 home directory (`homedir()`), but you can open the dashboard
 in a different directory with `notebook(dir="/some/path")`.
+Note that even if `notebook()` is invoked in the context of a
+[project-local Julia environment](https://docs.julialang.org/en/v1/stdlib/Pkg/index.html#Creating-your-own-projects-1),
+this context is not inherited by the newly launched IJulia notebook.
+To activate an environment in IJulia, use:
+```julia
+using Pkg
+Pkg.activate("/home/path")
+```
 
-Alternatively, you can run
+Alternatively to running `notebook()` from within an interactive
+Julia session, you can run
 ```
 jupyter notebook
 ```
